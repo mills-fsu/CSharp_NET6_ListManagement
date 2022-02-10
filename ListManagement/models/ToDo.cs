@@ -15,7 +15,7 @@ namespace ListManagement.models
 
         public override string ToString()
         {
-            return $"{Name} {Description} Completed: {IsCompleted}";
+            return $"{Name} | {Description} | Deadline: {Deadline} | Completed: {IsCompleted} ";
         }
     }
 }

@@ -9,21 +9,13 @@ namespace ListManagement.models
 {
     public class Item: IItem
     {
-        private string? _name;
-        public string? Name { 
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-            }
-        
-        }
+        public string? Name { get; set; }
         public string? Description { get; set; }
+
+        internal string? test;
         public override string ToString()
         {
+            Name = null;
             return $"{Name} {Description}";
         }
     }
