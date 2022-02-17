@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "djlHWoTVwrxItGn8CdTnuWhBdzYvyT39Gx8WZ3YnRqAQfgIUy+gvaPYiFsvSataqb2a1tBIi3MqEwbTmtuglXw==",
+  "dgSpecHash": "E35tdhlx2hTx45DQl13eVFcuUlJCDA6ZsbOOTllmUPhO5RvwlcQLL/8lsg3rvvc7Cx9Pgc+/KSrLSstAl6QHrA==",
   "success": true,
   "projectFilePath": "C:\\Users\\reece\\Documents\\GitHub\\gabbett-proj2\\ListManagement\\ListManagement.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\reece\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

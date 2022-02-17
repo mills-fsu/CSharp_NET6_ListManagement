@@ -1,198 +1,355 @@
-﻿
+﻿using Library.ListManagement.helpers;
 using ListManagement.models;
+using ListManagement.services;
+using Newtonsoft.Json;
+using System2 = System;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace ListManagement // Note: actual namespace depends on the project name.
 {
     public class Program
     {
+        
         static void Main(string[] args)
         {
-            //setup
-            var items = new List<Item>();
-            Console.WriteLine("Welcome to the List App");
+            
+            JsonSerializerSettings serializerSettings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+            var persistencePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\SaveData.json";
+            var itemService = ItemService.Current;
+           
+            Console.WriteLine("Welcome to the List Management App 2.0!");
+            var List = new List<Item>();
 
-            //non-null ToDo
-            ToDo nextTodo = new ToDo();
 
-            //Menu
-            PrintMenu(0);
-            int input = -1;
 
-            //check input
+            PrintMenu();
+
+            int input;
             if (int.TryParse(Console.ReadLine(), out input))
             {
-                //if still running
-                while (input != 7)
+                while (input != 9) //not quitting
                 {
-                    //reset ToDo
-                    nextTodo = new ToDo();
 
-                    //Create
-                    if (input == 1)
+                    if (input == 1) //create 
                     {
-                        //ask for property values
-                        Console.WriteLine("Input Name...");
-                        nextTodo.Name = Console.ReadLine();
+                        Console.WriteLine("Would you like to add a Task (t) or an Appointment (a)");
+                        bool keeploop = true;
+                        while (keeploop)
+                        {
+                            string type = Console.ReadLine();
+                            if (type == "t")
+                            {
+                                //Add a ToDo
+                                Console.WriteLine("Please enter a name: ");
+                                string name = Console.ReadLine();
+                                Console.WriteLine("Please enter a description: ");
+                                string desc = Console.ReadLine();
+                                Console.WriteLine("Please enter a deadline: ");
+                                var dead = DateTime.Parse(Console.ReadLine());
+                                ToDo nextTodo = new ToDo(name, desc, dead);
+                                List.Add(nextTodo);
+                                keeploop = false;
+                            }
+                            else if (type == "a")
+                            {
+                                //Add an Appointment
+                                Console.WriteLine("Please enter a name: ");
+                                string name = Console.ReadLine();
+                                Console.WriteLine("Please enter a description: ");
+                                string desc = Console.ReadLine();
+                                Console.WriteLine("Please enter a starting date: ");
+                                DateTime start = DateTime.Parse(Console.ReadLine());
+                                Console.WriteLine("Please enter an ending date: ");
+                                DateTime stop = DateTime.Parse(Console.ReadLine());
+                                Console.WriteLine("Please enter the # of attendants: ");
+                                int noAttend = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Please enter the names of the attendants:");
+                                var Attendies = new List<String>();
+                                for (int i = 0; i < noAttend; i++)
+                                {
+                                    Attendies.Add(Console.ReadLine());
+                                }
+                                var newTask = new Appointment(name, desc, start, stop, Attendies);
+                                List.Add(newTask);
+                                keeploop = false;
+                            }
+                        }
 
-                        Console.WriteLine("Input Description...");
-                        nextTodo.Description = Console.ReadLine();
-
-                        Console.WriteLine("Input Deadline (ex. 01/13/2000)...");
-                        nextTodo.Deadline = DateTime.Parse(Console.ReadLine());
-
-                        //Add task
-                        items.Add(nextTodo);
-                        Console.WriteLine("\nTask added.");
 
                     }
-                    //Delete
                     else if (input == 2)
                     {
-                        //Print Items
-                        PrintList(items);
-
-                        //Delete indexed item
+                        //D - Delete/Remove
                         Console.WriteLine("Please select which task to delete by entering the index number...");
-                        var listIndex = int.Parse(Console.ReadLine());
-                        items.RemoveAt(listIndex - 1);
-                        Console.WriteLine("\nTask deleted.");
-                    }
-                    //Update
-                    else if (input == 3)
-                    {
-                        //Print Items
-                        PrintList(items);
-
-                        //Select Item
-                        Console.WriteLine("\nPlease select which task to edit by entering the index number...");
-                        var listIndex = int.Parse(Console.ReadLine());
-                        listIndex--;
-
-                        //Select Property
-                        PrintMenu(1);
-                        var prop = int.Parse(Console.ReadLine());
-
-                        //If Name Change
-                        if (prop == 1)
+                        if (int.TryParse(Console.ReadLine(), out int selection))
                         {
-                            Console.WriteLine("\nPlease enter new name for task...");
-                            items[listIndex].Name = Console.ReadLine();
-                        }
-                        //If Desc Change
-                        else if (prop == 2)
-                        {
-                            Console.WriteLine("\nPlease enter new description for task...");
-                            items[listIndex].Description = Console.ReadLine();
-                        }
-                        //If Date Change
-                        else if (prop == 3)
-                        {
-                            //get datetime from ToDo instead of Item
-                            Console.WriteLine("\nPlease enter new deadline for task...");
-                            ToDo newToDo = (ToDo)items[listIndex];
-                            newToDo.Deadline = DateTime.Parse(Console.ReadLine());
-                            items[listIndex] = newToDo;
+                            
+                            List.RemoveAt(selection-1);
+                            Console.WriteLine("\nTask deleted.");
                         }
                         else
                         {
-                            //Invalid
-                            Console.WriteLine("\nInvalid entry.");
+                            Console.WriteLine("Sorry, I can't find that item!");
                         }
-                        Console.WriteLine("\nTask updated.");
                     }
-                    //Complete
+                    else if (input == 3)
+                    {
+                        Console.WriteLine("Please give the index of the entry you would like to edit: ");
+                        int index = int.Parse(Console.ReadLine());
+                        int counter = index -1;
+                        if (List[counter] is ToDo)
+                        {                                                                     
+                            Console.WriteLine("Give the task a new name:");
+                            List[counter].Name = Console.ReadLine();
+                            Console.WriteLine("Give the task a new description:");
+                            List[counter].Description = Console.ReadLine();
+                            Console.WriteLine("Give the task a deadline:");
+                            (List[counter] as ToDo).Deadline = DateTime.Parse(Console.ReadLine());
+                        }
+                        else
+                        {
+                            Console.WriteLine("Give the appointment a new name:");
+                            List[counter].Name = Console.ReadLine();
+                            Console.WriteLine("Give the appointment a new description:");
+                            List[counter].Description = Console.ReadLine();
+                            Console.WriteLine("Give the appointment a new start time: \n\tFormat: MM/DD/YYYY HR:MN:SC AM/PM");
+                            (List[counter] as Appointment).Start = DateTime.Parse(Console.ReadLine());
+                            Console.WriteLine("Give the appointment a new end time: \n\tFormat: MM/DD/YYYY HR:MN:SC AM/PM");
+                            (List[counter] as Appointment).End = DateTime.Parse(Console.ReadLine());
+                            Console.WriteLine("Please provide the new number of attendees: (int)");
+                            int noAttendies = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Please enter the names of the attendees:");
+                            var Attends = new List<String>();
+                            for (int o = 0; o < noAttendies; o++)
+                            {
+                                Console.Write("\t");
+                                Attends.Add(Console.ReadLine());
+                            }
+                            (List[counter] as Appointment).Attendees = Attends;                                                                      
+                        }
+                    }
+                       
+
                     else if (input == 4)
                     {
-                        //List items to select Index
-                        PrintList(items);
-                        Console.WriteLine("\nPlease select which task to complete by entering the index number...");
-                        var listIndex = int.Parse(Console.ReadLine());
-                        listIndex--;
-
-                        //get IsComplete from ToDo not Item
-                        var newToDo = (ToDo)items[listIndex];
-                        if (!newToDo.IsCompleted) { newToDo.IsCompleted = true; };
-                        Console.WriteLine("\nTask completed.");
-
-                    }
-                    //List Outstandings
-                    else if (input == 5)
-                    {
-                        //Print items
-                        Console.WriteLine("\n\nOustanding Tasks:");
-                        int i = 1;
-                        foreach (var todo in items)
+                        //Complete Task
+                        Console.WriteLine("Which item should I complete?");
+                        if (int.TryParse(Console.ReadLine(), out int selection))
                         {
-                            //if not completed
-                            var newToDo = (ToDo)todo;
-                            if (!newToDo.IsCompleted)
+                            var selectedItem = itemService.Items[selection - 1] as ToDo;
+                            if (selectedItem != null)
                             {
-                                Console.WriteLine($"{i}) {todo.ToString()}");
-                                i++;
+                                selectedItem.IsCompleted = true;
                             }
                         }
+                        else
+                        {
+                            Console.WriteLine("Sorry, I can't find that item!");
+                        }
                     }
-                    //List All
-                    else if (input == 6)
+                    else if (input == 5) //listOustanding
                     {
-                        //Print Function
-                        Console.WriteLine("\n\nAll Tasks:");
-                        PrintList(items);
+                        var notComplete = new List<Item>();
+                        for (int i = 0; i < List.Count; i++)
+                        {
+                            if (List[i] is ToDo)
+                            {
+                                if ((List[i] as ToDo).IsCompleted == false)
+                                {
+                                    notComplete.Add(List[i]);
+                                }
+                            }
+                        }
+                        ListNavigator(notComplete);
+
                     }
-                    //Invalid
+                    else if (input == 6) //listAll
+                    {
+                        ListNavigator(List);
+
+                    }
+                    else if (input == 7) //save
+                    {
+                        Console.WriteLine("Save (s) or Load (l): ");
+                        string search = Console.ReadLine();
+                        if (search == "s")
+                        {
+                            WriteToJsonFile<List<Item>>("C:\\Users\\reece\\Documents\\GitHub\\gabbett-proj2\\ListManagement\\save.txt", List);
+                        }
+                        else if (search == "l")
+                        {
+                            var Found = new List<ToDo>();
+                            Found = ReadFromJsonFile<List<ToDo>>("C:\\Users\\reece\\Documents\\GitHub\\gabbett-proj2\\ListManagement\\save.txt");
+                            List.AddRange(Found); 
+                           
+                        }
+                    }
+                    else if (input == 8) //search
+                    {
+                        Console.WriteLine("Enter a string to search for: ");
+                        string stringToSearch = Console.ReadLine();
+                        stringToSearch = stringToSearch.ToUpper();
+                        var Found = new List<Item>();
+                        var results = from item in List
+                                      where item.Name.ToUpper().Contains(stringToSearch) || item.Description.ToUpper().Contains(stringToSearch)
+                                      || ((item as Appointment)?.Attendees?.Any(a => a.ToUpper().Contains(stringToSearch)) ?? false)
+                                      select item;
+                        foreach (var res in results)
+                        {
+                            Found.Add(res);
+                        }
+                        ListNavigator(Found);
+                    }
                     else
                     {
-                        Console.WriteLine("\nInvalid input.");
+                        Console.WriteLine("No Items found for that string");
                     }
-                    //Print Menu and read new Input
-                    PrintMenu(0);
-                    input = int.Parse(Console.ReadLine());
+
+                    PrintMenu();
+                    if (!int.TryParse(Console.ReadLine(), out input))
+                    {
+                        Console.WriteLine("Incorrect Input.");
+                    }
                 }
             }
-            //first input is invalid
             else
             {
-                Console.WriteLine("\nUser did not specify a valid int!");
+                Console.WriteLine("User did not specify a valid int!");
             }
+
+            
         }
 
-        public static void PrintMenu(int menu)
+        public static void PrintMenu()
         {
-            if (menu == 0)
-            {
-                Console.WriteLine("\n\nList Management Menu\n----------------\nPlease input a number\n");
-                Console.WriteLine("1: Create a New Task");
-                Console.WriteLine("2: Delete an Existing Task");
-                Console.WriteLine("3: Edit an Existing Task");
-                Console.WriteLine("4: Complete a Task");
-                Console.WriteLine("5: List all Oustanding Tasks");
-                Console.WriteLine("6: List all Tasks");
-                Console.WriteLine("7: Close Program");
-            }
-
-            if (menu == 1)
-            {
-
-                Console.WriteLine("\n\nPlease select which property to edit...");
-
-                Console.WriteLine("1: Name");
-                Console.WriteLine("2: Description");
-                Console.WriteLine("3: Deadline");
-
-            }
+            Console.WriteLine("1. Add Item");
+            Console.WriteLine("2. Delete Item");
+            Console.WriteLine("3. Edit Item");
+            Console.WriteLine("4. Complete Item");
+            Console.WriteLine("5. List Outstanding");
+            Console.WriteLine("6. List All");
+            Console.WriteLine("7. Save");
+            Console.WriteLine("8. Search");
+            Console.WriteLine("9. Exit");
         }
 
-
-
-        public static void PrintList(List<Item> items)
+        public static void ListNavigator(List<Item> list)
         {
-            Console.WriteLine("\n\n");
-            int i = 1;
-            foreach (var todo in items)
+            if (list.Count == 0)
+                Console.WriteLine("This list is empty!");
+            if (list.Count <= 5)
             {
-                Console.WriteLine($"{i}) {todo.ToString()}");
-                i++;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    Output(list, i);
+                }
+            }
+            else
+            {
+                bool view = true;
+                int page = 0;
+                while (view)
+                {
+                    for (int i = (page * 5); i < ((page * 5) + 5); i++)
+                    {
+                        if (i >= list.Count)
+                        {
+                            if (page > 0)
+                                Console.WriteLine("Input 'p' to see the previous page.");
+                            if (page == 0 & list.Count > i)
+                                Console.WriteLine("Input 'n' to see the next page.");
+                            Console.WriteLine("Input 'q' to return to menu.");
+                            string temp = Console.ReadLine();
+                            temp = temp.ToLower();
+                            if (temp == "n")
+                                page = page + 1;
+                            else if (temp == "p")
+                                page = page - 1;
+                            else if (temp == "q")
+                                view = false;
+                            else
+                                Console.WriteLine("Entry not valid.");
+                            Console.WriteLine("\n");
+                            page = (page / 5) * 5;
+                            break;
+                        }
+                        Output(list, i);
+                        if (i == ((page * 5) + 4))
+                        {
+                            Console.WriteLine("Page navigation:");
+                            if (page > 0)
+                                Console.WriteLine("Input 'p' to see the previous page.");
+                            if (page == 0 & list.Count > i)
+                                Console.WriteLine("Input 'n' to see the next page.");
+                            Console.WriteLine("Input 'q' to return to menu.");
+                            string temp = Console.ReadLine();
+                            if (temp == "n")
+                                page = page + 1;
+                            else if (temp == "p")
+                                page = page - 1;
+                            else if (temp == "q")
+                                view = false;
+                            else
+                                Console.WriteLine("Entry not valid.");
+                            Console.WriteLine("\n");
+                        }
+                    }
+                }
             }
         }
+        public static void Output(List<Item> list, int i)
+        {
+            if (list[i] is ToDo)
+            {
+                string print = ($"Entry #{i + 1}: {list[i].Name} {list[i].Description} at {(list[i] as ToDo).Deadline}");
+                if ((list[i] as ToDo).IsCompleted) print = print + (" Status:\t\tCompleted");
+                else print = print + (" Status:\t\tIncomplete"); 
+                Console.WriteLine(print);
+                
+            }
+            else if (list[i] is Appointment)
+            {
+                
+                string print = ($"Entry #{i+1}: {list[i].Name} {list[i].Description} from {(list[i] as Appointment).Start} to {(list[i] as Appointment).End}");
+                Console.WriteLine(print);
+                Console.WriteLine("Attendees:");
+                for (int j = 0; j < ((list[i] as Appointment).Attendees.Count); j++)
+                {
+                    Console.WriteLine("\t{0}", (list[i] as Appointment).Attendees[j]);
+                }
+            }
+        }
+        public static void WriteToJsonFile<T>(string filePath, List<Item> list, bool append = false) where T : new()
+        {
+            TextWriter writer = null;
+            try
+            {
+                var contentsToWriteToFile = Newtonsoft.Json.JsonConvert.SerializeObject(list);
+                writer = new StreamWriter(filePath, append);
+                writer.Write(contentsToWriteToFile);
+            }
+            finally
+            {
+                if (writer != null)
+                    writer.Close();
+            }
+        }
+        public static T ReadFromJsonFile<T>(string filePath) where T : new()
+        {
+            TextReader reader = null;
+            try
+            {
+                reader = new StreamReader(filePath);
+                var fileContents = reader.ReadToEnd();
+                return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(fileContents);
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+            }
+        }
+
     }
 }

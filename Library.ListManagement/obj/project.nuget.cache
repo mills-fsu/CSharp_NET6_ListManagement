@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "rgyC854xAJo65KZcugZxZWCOCj8WCh/+MicVdwtwYHcz2AAAHpRuqVxpjDHJQrJCq1x2teX0bA5Bc8pvH7I3vg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\reece\\Documents\\GitHub\\gabbett-proj2\\Library.ListManagement\\Library.ListManagement.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\reece\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
