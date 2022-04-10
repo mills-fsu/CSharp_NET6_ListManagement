@@ -13,13 +13,9 @@ namespace ListManagement.models
 
         public List<string> Attendees { get; set; }
 
-        public Appointment(string name, string desc, DateTime begin, DateTime end, List<String> attendants)
+        public Appointment()
         {
-            this.Name = name;
-            this.Description = desc;
-            this.Start = begin;
-            this.End = end;
-            this.Attendees = attendants;
+            Attendees = new List<string>();
         }
 
         public override string ToString()

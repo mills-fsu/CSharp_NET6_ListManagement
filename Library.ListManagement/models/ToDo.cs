@@ -13,14 +13,6 @@ namespace ListManagement.models
         public DateTime Deadline { get; set; }
         public bool IsCompleted { get; set; }
 
-        public ToDo(string name, string desc, DateTime dead)
-        {
-            this.Name = name;
-            this.Description = desc;
-            this.Deadline = dead;
-            IsCompleted = false;
-        }
-
         public override string ToString()
         {
             return $"{Name} {Description} Completed: {IsCompleted}";

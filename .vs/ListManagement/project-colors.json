@@ -10,7 +10,12 @@
       "ProjectGuid": "c5cb290e-63db-49a9-95fc-974f6af3fa7b",
       "DisplayName": "Library.ListManagement",
       "ColorIndex": 1
+    },
+    "02415b53-e50e-4e54-b596-c35be6c43e2e": {
+      "ProjectGuid": "02415b53-e50e-4e54-b596-c35be6c43e2e",
+      "DisplayName": "UWPListManagemnet",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }
