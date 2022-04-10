@@ -49,7 +49,7 @@ namespace ListManagement.models
 
         public override string ToString()
         {
-            return $"{Name} {Description} Start: {(Start.ToString("dd/MM/yyyy"))} End: {(End.ToString("dd/MM/yyyy"))} Priority {Priority}";
+            return $"{Name} | {Description} | Start: {(Start.ToString("dd/MM/yyyy"))} | End: {(End.ToString("dd/MM/yyyy"))} | Priority: {Priority}";
         }
     }
 }

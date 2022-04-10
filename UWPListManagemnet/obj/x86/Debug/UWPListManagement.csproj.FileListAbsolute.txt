@@ -61,3 +61,9 @@ C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\obj\x86\Debug\qu
 C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424959200000000.json
+C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\System.Text.Encodings.Web.dll
+C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\System.Text.Json.dll
+C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\obj\x86\Debug\FxResources.System.Text.Encodings.Web.SR.resw
+C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\obj\x86\Debug\FxResources.System.Text.Json.SR.resw

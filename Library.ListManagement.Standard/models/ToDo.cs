@@ -29,7 +29,7 @@ namespace ListManagement.models
 
         public override string ToString()
         {
-            return $"{Name} {Description} Due: {(Deadline.ToString("dd/MM/yyyy"))} Completed: {IsCompleted}";
+            return $"{Name} | {Description} | Due: {(Deadline.ToString("dd/MM/yyyy"))} | Completed: {IsCompleted} | Priority: {Priority}";
         }
     }
 }

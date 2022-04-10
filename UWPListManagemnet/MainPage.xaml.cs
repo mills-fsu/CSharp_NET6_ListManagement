@@ -33,17 +33,44 @@ namespace UWPListManagement
             await dialog.ShowAsync();
         }
 
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainViewModel).Save();
+        }
 
+        private void Load_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainViewModel).Load();
+        }
 
         private async void EditItemClick(object sender, RoutedEventArgs e)
         {
-            var dialog = new ToDoDialog((DataContext as MainViewModel).Items, (DataContext as MainViewModel).SelectedItem);
-            await dialog.ShowAsync();
+            var Type = (DataContext as MainViewModel).SelectedItem.GetType();
+            if (Type == typeof(ToDo)){
+                var dialog = new ToDoDialog((DataContext as MainViewModel).Items, (DataContext as MainViewModel).SelectedItem);
+                await dialog.ShowAsync();
+            }
+            else if (Type == typeof(Appointment)) {
+                var dialog = new AppointmentDialog((DataContext as MainViewModel).Items, (DataContext as MainViewModel).SelectedItem);
+                await dialog.ShowAsync();
+
+            }
         }
 
         private void DeleteItemClick(object sender, RoutedEventArgs e)
         {
             (DataContext as MainViewModel).Remove((DataContext as MainViewModel).SelectedItem);
+        }
+
+        private void Sort_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainViewModel).Sort();
+           
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainViewModel).Search();
         }
     }
 }

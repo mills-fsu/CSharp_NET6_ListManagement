@@ -7,13 +7,18 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace ListManagement.services
 {
     public class ItemService
     {
+        public bool searched = false;
+        public string lastSearched = "";
         private ObservableCollection<Item> items;
+        private List<Item> fullItems = new List<Item>();
         private ListNavigator<Item> listNav;
         private string persistencePath;
         private JsonSerializerSettings serializerSettings
@@ -29,6 +34,7 @@ namespace ListManagement.services
                 return items;
             }
         }
+
 
         public string Query { get; set; }
 
@@ -97,6 +103,7 @@ namespace ListManagement.services
                 i.Id = nextId;
             }
             items.Add(i);
+            
         }
 
         public void Remove(Item i)
@@ -106,13 +113,27 @@ namespace ListManagement.services
 
         public void Save()
         {
-
             var listJson = JsonConvert.SerializeObject(Items, serializerSettings);
             if (File.Exists(persistencePath))
             {
                 File.Delete(persistencePath);
             }
             File.WriteAllText(persistencePath, listJson);
+
+        }
+
+        public void Load() 
+        {
+            if (File.Exists(persistencePath))
+            {
+                string listJson = File.ReadAllText(persistencePath);
+                ObservableCollection<Item> newitems = (JsonConvert.DeserializeObject(listJson, serializerSettings) as ObservableCollection<Item>);
+                items.Clear();
+                for (int i = 0; i < newitems.Count; i++)
+                {
+                    items.Add(newitems[i]);
+                }
+            }
         }
 
         public Dictionary<object, Item> GetPage()
@@ -150,5 +171,80 @@ namespace ListManagement.services
                 return 1;
             }
         }
+        public void Sort()
+        {
+            var items1 = new ObservableCollection<Item>(items.OrderBy(i => i.Priority));
+            for (int i = 0; i < items.Count; i++)
+            {
+                items.Move(items.IndexOf(items1[i]), i);
+            }
+
+        }
+
+        public void Search(string query) 
+        {
+            string stringToSearch = query;
+            stringToSearch = stringToSearch.ToUpper();
+
+            if (!searched)
+            {
+                searched = true;
+                lastSearched = query;
+
+                //reset fullitems
+                for (int i = 0; i < fullItems.Count; i++)
+                {
+                    fullItems.Remove(fullItems[i]);
+                }
+                for (int i = 0; i < items.Count; i++)
+                {
+                    fullItems.Add(items[i]);
+                }
+                var Found = new ObservableCollection<Item>();
+                var results = from item in items
+                              where item.Name.ToUpper().Contains(stringToSearch) || item.Description.ToUpper().Contains(stringToSearch)
+                              || ((item as Appointment)?.Attendees?.Any(a => a.ToUpper().Contains(stringToSearch)) ?? false)
+                              select item;
+                foreach (var res in results)
+                {
+                    Found.Add(res);
+                }
+                items.Clear();
+                for (int i = 0; i < Found.Count; i++)
+                {
+                    items.Add(Found[i]);
+                }
+
+            }
+            else if(query != lastSearched)
+            {
+                items.Clear();
+                for (int i = 0; i < fullItems.Count; i++)
+                {
+                    items.Add(fullItems[i]);
+                }
+
+                fullItems.Clear();
+                for (int i = 0; i < items.Count; i++)
+                {
+                    fullItems.Add(items[i]);
+                }
+                var Found = new ObservableCollection<Item>();
+                var results = from item in items
+                              where item.Name.ToUpper().Contains(stringToSearch) || item.Description.ToUpper().Contains(stringToSearch)
+                              || ((item as Appointment)?.Attendees?.Any(a => a.ToUpper().Contains(stringToSearch)) ?? false)
+                              select item;
+                foreach (var res in results)
+                {
+                    Found.Add(res);
+                }
+                items.Clear();
+                for (int i = 0; i < Found.Count; i++)
+                {
+                    items.Add(Found[i]);
+                }
+            }
+        }
+
     }
 }
