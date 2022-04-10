@@ -8167,9 +8167,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\reece\\Documents\\GitHub\\gabbett-proj2\\UWPListManagemnet\\UWPListManagemnet.csproj",
+      "projectUniqueName": "C:\\Users\\reece\\Documents\\GitHub\\gabbett-proj2\\UWPListManagemnet\\UWPListManagement.csproj",
       "projectName": "UWPListManagemnet",
-      "projectPath": "C:\\Users\\reece\\Documents\\GitHub\\gabbett-proj2\\UWPListManagemnet\\UWPListManagemnet.csproj",
+      "projectPath": "C:\\Users\\reece\\Documents\\GitHub\\gabbett-proj2\\UWPListManagemnet\\UWPListManagement.csproj",
       "packagesPath": "C:\\Users\\reece\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\reece\\Documents\\GitHub\\gabbett-proj2\\UWPListManagemnet\\obj\\",
       "projectStyle": "PackageReference",

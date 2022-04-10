@@ -8,22 +8,22 @@
 //------------------------------------------------------------------------------
 
 
-namespace UWPListManagement
+namespace UWPListManagemnet
 {
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 10.0.19041.685")]
-        private global::UWPListManagemnet.UWPListManagement_XamlTypeInfo.XamlMetaDataProvider __appProvider;
+        private global::UWPListManagemnet.UWPListManagemnet_XamlTypeInfo.XamlMetaDataProvider __appProvider;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 10.0.19041.685")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private global::UWPListManagemnet.UWPListManagement_XamlTypeInfo.XamlMetaDataProvider _AppProvider
+        private global::UWPListManagemnet.UWPListManagemnet_XamlTypeInfo.XamlMetaDataProvider _AppProvider
         {
             get
             {
                 if (__appProvider == null)
                 {
-                    __appProvider = new global::UWPListManagemnet.UWPListManagement_XamlTypeInfo.XamlMetaDataProvider();
+                    __appProvider = new global::UWPListManagemnet.UWPListManagemnet_XamlTypeInfo.XamlMetaDataProvider();
                 }
                 return __appProvider;
             }
@@ -61,7 +61,7 @@ namespace UWPListManagement
     }
 }
 
-namespace UWPListManagemnet.UWPListManagement_XamlTypeInfo
+namespace UWPListManagemnet.UWPListManagemnet_XamlTypeInfo
 {
     /// <summary>
     /// Main class for providing metadata for the app or library
@@ -70,15 +70,15 @@ namespace UWPListManagemnet.UWPListManagement_XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public sealed class XamlMetaDataProvider : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private global::UWPListManagemnet.UWPListManagement_XamlTypeInfo.XamlTypeInfoProvider _provider = null;
+        private global::UWPListManagemnet.UWPListManagemnet_XamlTypeInfo.XamlTypeInfoProvider _provider = null;
 
-        private global::UWPListManagemnet.UWPListManagement_XamlTypeInfo.XamlTypeInfoProvider Provider
+        private global::UWPListManagemnet.UWPListManagemnet_XamlTypeInfo.XamlTypeInfoProvider Provider
         {
             get
             {
                 if (_provider == null)
                 {
-                    _provider = new global::UWPListManagemnet.UWPListManagement_XamlTypeInfo.XamlTypeInfoProvider();
+                    _provider = new global::UWPListManagemnet.UWPListManagemnet_XamlTypeInfo.XamlTypeInfoProvider();
                 }
                 return _provider;
             }

@@ -70,9 +70,6 @@
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\Dialogs\AddDialog.xbf">
-      <PackagePath>Dialogs\AddDialog.xbf</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>

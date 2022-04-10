@@ -10,7 +10,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListManagement", "ListManag
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.ListManagement", "Library.ListManagement\Library.ListManagement.csproj", "{C5CB290E-63DB-49A9-95FC-974F6AF3FA7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWPListManagemnet", "UWPListManagemnet\UWPListManagemnet.csproj", "{02415B53-E50E-4E54-B596-C35BE6C43E2E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWPListManagement", "UWPListManagemnet\UWPListManagement.csproj", "{02415B53-E50E-4E54-B596-C35BE6C43E2E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5CB290E-63DB-49A9-95FC-974F6AF3FA7B} = {C5CB290E-63DB-49A9-95FC-974F6AF3FA7B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

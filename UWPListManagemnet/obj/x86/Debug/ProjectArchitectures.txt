@@ -1,1 +1,1 @@
-C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\UWPListManagemnet.csproj;x86
+C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\UWPListManagement.csproj;x86
