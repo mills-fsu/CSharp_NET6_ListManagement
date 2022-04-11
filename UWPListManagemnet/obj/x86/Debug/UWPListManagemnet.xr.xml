@@ -52,6 +52,11 @@
     </RootType>
     <RootType FullName="UWPListManagement.Dialogs.AppointmentDialog" />
     <RootType FullName="UWPListManagement.Dialogs.ItemDialog" />
+    <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
+      <RootProperty Name="Content" />
+      <RootEvent Name="Checked" />
+      <RootEvent Name="Unchecked" />
+    </RootType>
     <RootType FullName="UWPListManagement.Dialogs.ToDoDialog" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Background" />

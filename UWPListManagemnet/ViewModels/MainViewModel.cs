@@ -30,5 +30,9 @@ namespace UWPListManagement.ViewModels
         {
             itemService.Add(item);
         }
+        public void Remove(Item item)
+        {
+            itemService.Remove(item);
+        }
     }
 }

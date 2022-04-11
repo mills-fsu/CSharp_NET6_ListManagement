@@ -10,12 +10,26 @@ namespace ListManagement.models
 {
     public class ToDo : Item
     {
+
+        private DateTimeOffset boundDate;
+        public DateTimeOffset BoundDate
+        {
+            get
+            {
+                return boundDate;
+            }
+            set
+            {
+                boundDate = value;
+                Deadline = boundDate.Date;
+            }
+        }
         public DateTime Deadline { get; set; }
         public bool IsCompleted { get; set; }
 
         public override string ToString()
         {
-            return $"{Name} {Description} Completed: {IsCompleted}";
+            return $"{Name} {Description} Due: {(Deadline.ToString("dd/MM/yyyy"))} Completed: {IsCompleted}";
         }
     }
 }

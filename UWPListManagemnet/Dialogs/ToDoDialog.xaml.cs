@@ -27,8 +27,9 @@ namespace UWPListManagement.Dialogs
         {
             this.InitializeComponent();
             _toDoCollection = list;
-
+            
             DataContext = new ToDo();
+            (DataContext as ToDo).BoundDate = DateTime.Now;
         }
 
         public ToDoDialog(ObservableCollection<Item> list, Item item)
@@ -58,5 +59,18 @@ namespace UWPListManagement.Dialogs
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
         }
+
+        private void HandleCheck(object sender, RoutedEventArgs e)
+        {
+            (DataContext as ToDo).IsCompleted = true;
+            
+        }
+
+        private void HandleUnchecked(object sender, RoutedEventArgs e)
+        {
+            (DataContext as ToDo).IsCompleted = false;
+
+        }
+
     }
 }

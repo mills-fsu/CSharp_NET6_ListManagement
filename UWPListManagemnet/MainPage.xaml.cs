@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ListManagement.models;
+using ListManagement.services;
+using System;
 using UWPListManagement.Dialogs;
 using UWPListManagement.ViewModels;
 using Windows.UI.Xaml;
@@ -41,7 +43,7 @@ namespace UWPListManagement
 
         private void DeleteItemClick(object sender, RoutedEventArgs e)
         {
-
+            (DataContext as MainViewModel).Remove((DataContext as MainViewModel).SelectedItem);
         }
     }
 }
