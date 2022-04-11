@@ -13,9 +13,24 @@
     },
     "02415b53-e50e-4e54-b596-c35be6c43e2e": {
       "ProjectGuid": "02415b53-e50e-4e54-b596-c35be6c43e2e",
-      "DisplayName": "UWPListManagemnet",
+      "DisplayName": "UWPListManagement",
       "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "7f3aaee7-fbc4-4f38-8f90-a9031a8524c0": {
+      "ProjectGuid": "7f3aaee7-fbc4-4f38-8f90-a9031a8524c0",
+      "DisplayName": "Library.ListManagement.Standard",
+      "ColorIndex": 3
+    },
+    "9a3a8e50-00ef-488a-af87-15d9b489888d": {
+      "ProjectGuid": "9a3a8e50-00ef-488a-af87-15d9b489888d",
+      "DisplayName": "Library.ListManagement.Standard",
+      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 5
 }

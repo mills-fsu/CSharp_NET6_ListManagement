@@ -1,0 +1,4 @@
+C:\Users\reece\Documents\GitHub\gabbett-proj2\ClassLibrary1\obj\Debug\netstandard2.0\Library.ListManagement.Standard.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\reece\Documents\GitHub\gabbett-proj2\ClassLibrary1\obj\Debug\netstandard2.0\Library.ListManagement.Standard.AssemblyInfoInputs.cache
+C:\Users\reece\Documents\GitHub\gabbett-proj2\ClassLibrary1\obj\Debug\netstandard2.0\Library.ListManagement.Standard.AssemblyInfo.cs
+C:\Users\reece\Documents\GitHub\gabbett-proj2\ClassLibrary1\obj\Debug\netstandard2.0\Library.ListManagement.Standard.csproj.CoreCompileInputs.cache

@@ -1,0 +1,5 @@
+C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement\obj\Debug\netcoreapp3.1\Library.ListManagement.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement\obj\Debug\netcoreapp3.1\Library.ListManagement.AssemblyInfoInputs.cache
+C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement\obj\Debug\netcoreapp3.1\Library.ListManagement.AssemblyInfo.cs
+C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement\obj\Debug\netcoreapp3.1\Library.ListManagement.csproj.CoreCompileInputs.cache
+C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement\obj\Debug\netcoreapp3.1\Library.ListManagement.csproj.AssemblyReference.cache

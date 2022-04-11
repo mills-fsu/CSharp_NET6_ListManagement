@@ -7,6 +7,9 @@ Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
+Dialogs\AppointmentDialog.xbf
+Dialogs\ItemDialog.xbf
+Dialogs\ToDoDialog.xbf
 MainPage.xbf
 UWPListManagemnet.xr.xml
 Properties\Default.rd.xml
