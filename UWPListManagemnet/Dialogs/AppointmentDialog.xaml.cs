@@ -27,8 +27,10 @@ namespace UWPListManagement.Dialogs
         {
             this.InitializeComponent();
             _appointmentCollection = list;
-
+            
             DataContext = new Appointment();
+            (DataContext as Appointment).BoundDate = DateTime.Now;
+            (DataContext as Appointment).BoundDate1 = DateTime.Now;
         }
 
         public AppointmentDialog(ObservableCollection<Item> list, Item item)

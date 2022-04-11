@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="Priority" />
     <RootPropertyPathName Name="Date" />
+    <RootPropertyPathName Name="BoundDate1" />
     <RootPropertyPathName Name="BoundDate" />
     <RootPropertyPathName Name="Description" />
     <RootPropertyPathName Name="Name" />
@@ -36,17 +38,17 @@
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.DatePicker">
-      <RootProperty Name="SelectedDate" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="IsEnabled" />
       <RootProperty Name="Text" />
+      <RootProperty Name="IsEnabled" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
-      <RootProperty Name="UpdateSourceTrigger" />
       <RootProperty Name="Path" />
       <RootProperty Name="Mode" />
+      <RootProperty Name="UpdateSourceTrigger" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.DatePicker">
+      <RootProperty Name="SelectedDate" />
     </RootType>
     <RootType FullName="UWPListManagement.Dialogs.AppointmentDialog" />
     <RootType FullName="UWPListManagement.Dialogs.ItemDialog" />
