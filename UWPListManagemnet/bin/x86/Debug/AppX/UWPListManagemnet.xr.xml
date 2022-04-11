@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="Date" />
+    <RootPropertyPathName Name="BoundDate" />
     <RootPropertyPathName Name="Description" />
     <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="Items" />
@@ -18,15 +20,13 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="RowDefinitions" />
-      <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="Children" />
+      <RootProperty Name="ColumnDefinitions" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
     </RootType>
-    <RootType FullName="UWPListManagemnet.Dialogs.AppointmentDialog" />
-    <RootType FullName="UWPListManagemnet.Dialogs.ItemDialog" />
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
       <RootProperty Name="Height" />
     </RootType>
@@ -36,15 +36,21 @@
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.DatePicker">
+      <RootProperty Name="SelectedDate" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="IsEnabled" />
       <RootProperty Name="Text" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="UpdateSourceTrigger" />
       <RootProperty Name="Path" />
       <RootProperty Name="Mode" />
-      <RootProperty Name="UpdateSourceTrigger" />
     </RootType>
-    <RootType FullName="UWPListManagemnet.Dialogs.ToDoDialog" />
+    <RootType FullName="UWPListManagement.Dialogs.AppointmentDialog" />
+    <RootType FullName="UWPListManagement.Dialogs.ItemDialog" />
+    <RootType FullName="UWPListManagement.Dialogs.ToDoDialog" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Background" />
       <RootProperty Name="Content" />

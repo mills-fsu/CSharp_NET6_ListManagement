@@ -1,9 +1,9 @@
+C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\bin\Debug\netstandard2.0\Library.ListManagement.Standard.deps.json
+C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\bin\Debug\netstandard2.0\Library.ListManagement.Standard.dll
+C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\bin\Debug\netstandard2.0\Library.ListManagement.Standard.pdb
 C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\obj\Debug\netstandard2.0\Library.ListManagement.Standard.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\obj\Debug\netstandard2.0\Library.ListManagement.Standard.AssemblyInfoInputs.cache
 C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\obj\Debug\netstandard2.0\Library.ListManagement.Standard.AssemblyInfo.cs
 C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\obj\Debug\netstandard2.0\Library.ListManagement.Standard.csproj.CoreCompileInputs.cache
-C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\bin\Debug\netstandard2.0\Library.ListManagement.Standard.deps.json
-C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\bin\Debug\netstandard2.0\Library.ListManagement.Standard.dll
-C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\bin\Debug\netstandard2.0\Library.ListManagement.Standard.pdb
 C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\obj\Debug\netstandard2.0\Library.ListManagement.Standard.dll
 C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\obj\Debug\netstandard2.0\Library.ListManagement.Standard.pdb

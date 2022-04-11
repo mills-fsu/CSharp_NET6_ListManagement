@@ -2,8 +2,9 @@
 using ListManagement.models;
 using Newtonsoft.Json;
 using System;
-using System.IO;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace ListManagement.services
 {
     public class ItemService
     {
-        private List<Item> items;
+        private ObservableCollection<Item> items;
         private ListNavigator<Item> listNav;
         private string persistencePath;
         private JsonSerializerSettings serializerSettings
@@ -21,7 +22,7 @@ namespace ListManagement.services
         static private ItemService instance;
 
         public bool ShowComplete { get; set; }
-        public List<Item> Items
+        public ObservableCollection<Item> Items
         {
             get
             {
@@ -66,7 +67,7 @@ namespace ListManagement.services
 
         private ItemService()
         {
-            items = new List<Item>();
+            items = new ObservableCollection<Item>();
 
             persistencePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\SaveData.json";
             if (File.Exists(persistencePath))
@@ -76,13 +77,13 @@ namespace ListManagement.services
                     var state = File.ReadAllText(persistencePath);
                     if (state != null)
                     {
-                        items = JsonConvert.DeserializeObject<List<Item>>(state, serializerSettings) ?? new List<Item>();
+                        items = JsonConvert.DeserializeObject<ObservableCollection<Item>>(state, serializerSettings) ?? new ObservableCollection<Item>();
                     }
                 }
                 catch (Exception e)
                 {
                     File.Delete(persistencePath);
-                    items = new List<Item>();
+                    items = new ObservableCollection<Item>();
                 }
             }
 
@@ -142,10 +143,11 @@ namespace ListManagement.services
         {
             get
             {
-                if (Items.Count > 0)
+                if (Items.Any())
+                {
                     return Items.Select(i => i.Id).Max() + 1;
-                else
-                    return 0;
+                }
+                return 1;
             }
         }
     }

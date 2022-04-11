@@ -28,8 +28,7 @@
             <Button Grid.Column="3" Content="Search" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Button>
         </Grid>
         <Grid Grid.Row="1">
-            <ListBox ItemsSource ="{Binding Path=Items, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                     SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></ListBox>
+            <ListBox ItemsSource="{Binding Path=Items, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></ListBox>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -40,8 +39,8 @@
             </Grid.ColumnDefinitions>
             <Button x:ConnectionId='2' Content="Add ToDo" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"                     ></Button>
             <Button x:ConnectionId='3' Content="Add Appointment" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"                            ></Button>
-            <Button Content="Button3" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Button>
-            <Button Content="Button4" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Button>
+            <Button x:ConnectionId='4' Content="Edit Item" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"                      ></Button>
+            <Button x:ConnectionId='5' Content="Delete Item" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"                        ></Button>
         </Grid>
     </Grid>
 </Page>
