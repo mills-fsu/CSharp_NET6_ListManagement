@@ -1,4 +1,5 @@
 ﻿using Library.ListManagement.helpers;
+using Library.ListManagement.Standard.utilities;
 using ListManagement.models;
 using Newtonsoft.Json;
 using System;
@@ -75,6 +76,27 @@ namespace ListManagement.services
         {
             items = new ObservableCollection<Item>();
 
+            try
+            {
+                LoadFromServer();
+            }
+            catch (Exception)
+            {
+                LoadFromDisk();
+            }
+            
+        }
+
+        private void LoadFromServer()
+        {
+            var payload = JsonConvert.DeserializeObject<List<Item>>(new WebRequestHandler().Get("http://localhost/ListManagementAPI/ToDo").Result);
+            payload.ForEach(items.Add);
+
+            listNav = new ListNavigator<Item>(FilteredItems, 2);
+        }
+
+        private void LoadFromDisk()
+        {
             persistencePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\SaveData.json";
             if (File.Exists(persistencePath))
             {
@@ -92,8 +114,6 @@ namespace ListManagement.services
                     items = new ObservableCollection<Item>();
                 }
             }
-
-            listNav = new ListNavigator<Item>(FilteredItems, 2);
         }
 
         public void Add(Item i)

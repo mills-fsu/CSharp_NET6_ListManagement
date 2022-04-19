@@ -9,3 +9,4 @@ C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement\obj\Debug\n
 C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement\obj\Debug\net6.0\Library.ListManagement.dll
 C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement\obj\Debug\net6.0\ref\Library.ListManagement.dll
 C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement\obj\Debug\net6.0\Library.ListManagement.pdb
+C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement\obj\Debug\net6.0\Library.ListManagement.csproj.AssemblyReference.cache

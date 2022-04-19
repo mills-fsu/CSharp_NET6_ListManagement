@@ -17,6 +17,12 @@ namespace UWPListManagement.ViewModels
     {
         private ItemService itemService = ItemService.Current;
 
+        public MainViewModel()
+        {
+
+        }
+
+
         public ObservableCollection<Item> Items
         {
             get
@@ -44,16 +50,15 @@ namespace UWPListManagement.ViewModels
 
         private void Load(string path)
         {
-            MainViewModel mvm;
+            var mvm = new MainViewModel();
+            
             if (File.Exists(path))
             {
                 try
                 {
-                    mvm = JsonConvert
-                    .DeserializeObject<MainViewModel>(File.ReadAllText(path));
+                    mvm = JsonConvert.DeserializeObject<MainViewModel>(File.ReadAllText(path));
 
                     SelectedItem = mvm.SelectedItem;
-
                 }
                 catch (Exception)
                 {

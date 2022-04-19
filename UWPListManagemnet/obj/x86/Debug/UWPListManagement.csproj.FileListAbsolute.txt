@@ -67,3 +67,5 @@ C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\Sy
 C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\System.Text.Json.dll
 C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\obj\x86\Debug\FxResources.System.Text.Encodings.Web.SR.resw
 C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\obj\x86\Debug\FxResources.System.Text.Json.SR.resw
+C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\System.Net.Http.Extensions.dll
+C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\System.Net.Http.Primitives.dll

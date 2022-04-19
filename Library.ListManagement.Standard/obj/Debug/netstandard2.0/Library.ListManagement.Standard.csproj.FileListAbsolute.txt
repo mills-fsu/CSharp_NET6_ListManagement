@@ -7,4 +7,3 @@ C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\ob
 C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\obj\Debug\netstandard2.0\Library.ListManagement.Standard.csproj.CoreCompileInputs.cache
 C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\obj\Debug\netstandard2.0\Library.ListManagement.Standard.dll
 C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\obj\Debug\netstandard2.0\Library.ListManagement.Standard.pdb
-C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\obj\Debug\netstandard2.0\Library.ListManagement.Standard.csproj.AssemblyReference.cache

@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>A7F9AAB4A27315A4C5EFAC3260448E884E816413948E25080DAE2FEE698A0F3D</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>9A4936CF0581E2145E685BABA7BFEDB38C7FDD319A40214B923F2C08CFBAB377</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>869d85ce-7ce6-47e5-95db-e92a8b583c77_1.0.0.0_x86__1bjde2j6dyahr</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>869d85ce-7ce6-47e5-95db-e92a8b583c77_1bjde2j6dyahr!App</RegisteredUserModeAppID>
     <RegisteredPackageID>869d85ce-7ce6-47e5-95db-e92a8b583c77</RegisteredPackageID>
@@ -30,17 +30,25 @@
     <AppXManifest Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-04-16T23:03:11.806</Modified>
+      <Modified>2022-04-19T01:54:30.544</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\UWPListManagemnet.exe">
       <PackagePath>entrypoint\UWPListManagemnet.exe</PackagePath>
-      <Modified>2022-04-16T23:03:11.218</Modified>
+      <Modified>2022-04-19T01:54:30.010</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\.nuget\packages\microsoft.bcl.asyncinterfaces\6.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll">
       <PackagePath>Microsoft.Bcl.AsyncInterfaces.dll</PackagePath>
       <Modified>2021-10-22T23:42:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\reece\.nuget\packages\microsoft.net.http\2.2.29\lib\win8\System.Net.Http.Extensions.dll">
+      <PackagePath>System.Net.Http.Extensions.dll</PackagePath>
+      <Modified>2015-02-19T20:10:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\reece\.nuget\packages\microsoft.net.http\2.2.29\lib\win8\System.Net.Http.Primitives.dll">
+      <PackagePath>System.Net.Http.Primitives.dll</PackagePath>
+      <Modified>2015-02-19T20:10:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\.nuget\packages\newtonsoft.json\13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -64,7 +72,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\Library.ListManagement.Standard\bin\Debug\netstandard2.0\Library.ListManagement.Standard.dll">
       <PackagePath>Library.ListManagement.Standard.dll</PackagePath>
-      <Modified>2022-04-16T23:03:06.810</Modified>
+      <Modified>2022-04-19T01:54:25.943</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
@@ -72,65 +80,65 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2022-04-06T22:49:09.282</Modified>
+      <Modified>2022-04-12T01:39:39.679</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2022-04-06T21:39:40.809</Modified>
+      <Modified>2022-04-12T01:39:39.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-04-06T21:39:40.811</Modified>
+      <Modified>2022-04-12T01:39:39.568</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-04-06T21:39:40.812</Modified>
+      <Modified>2022-04-12T01:39:39.575</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-04-06T21:39:40.812</Modified>
+      <Modified>2022-04-12T01:39:39.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-04-06T21:39:40.812</Modified>
+      <Modified>2022-04-12T01:39:39.588</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-04-06T21:39:40.813</Modified>
+      <Modified>2022-04-12T01:39:39.596</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-04-06T21:39:40.813</Modified>
+      <Modified>2022-04-12T01:39:39.601</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\UWPListManagemnet.xr.xml">
       <PackagePath>UWPListManagemnet.xr.xml</PackagePath>
-      <Modified>2022-04-16T20:42:51.769</Modified>
+      <Modified>2022-04-12T01:39:40.008</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-04-16T23:03:10.704</Modified>
+      <Modified>2022-04-19T01:54:29.562</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\Dialogs\AppointmentDialog.xbf">
       <PackagePath>Dialogs\AppointmentDialog.xbf</PackagePath>
-      <Modified>2022-04-16T23:03:10.704</Modified>
+      <Modified>2022-04-19T01:54:29.562</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\Dialogs\ItemDialog.xbf">
       <PackagePath>Dialogs\ItemDialog.xbf</PackagePath>
-      <Modified>2022-04-16T23:03:10.704</Modified>
+      <Modified>2022-04-19T01:54:29.562</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\Dialogs\ToDoDialog.xbf">
       <PackagePath>Dialogs\ToDoDialog.xbf</PackagePath>
-      <Modified>2022-04-16T23:03:10.705</Modified>
+      <Modified>2022-04-19T01:54:29.562</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-04-16T23:03:10.705</Modified>
+      <Modified>2022-04-19T01:54:29.562</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -138,11 +146,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-04-16T22:31:11.000</Modified>
+      <Modified>2022-04-19T01:42:45.993</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\reece\Documents\GitHub\gabbett-proj2\UWPListManagemnet\bin\x86\Debug\Core\UWPListManagemnet.exe">
       <PackagePath>UWPListManagemnet.exe</PackagePath>
-      <Modified>2022-04-16T23:03:11.800</Modified>
+      <Modified>2022-04-19T01:54:30.542</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

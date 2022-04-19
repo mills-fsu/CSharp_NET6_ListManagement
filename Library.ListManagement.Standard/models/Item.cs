@@ -1,4 +1,6 @@
-﻿using ListManagement.interfaces;
+﻿using Library.ListManagement.Standard.utilities;
+using ListManagement.interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace ListManagement.models
 {
+    [JsonConverter(typeof(ItemJsonConverter))]
     public class Item : IItem
     {
         private string _name;
@@ -27,7 +30,7 @@ namespace ListManagement.models
         public int Id { get; set; }
         public override string ToString()
         {
-            return $"{Id} {Name} {Description}";
+            return $"{Name} {Description}";
         }
     }
 }
