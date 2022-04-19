@@ -9,8 +9,8 @@ namespace API.ListManagement.Database
 
         public static List<Item> Items = new List<Item>
         {
-            new Appointment{Name = "App1", Description ="App1Desc"},
-            new ToDo{Name="ToDo1", Description="ToDo1Desc", IsCompleted=false},
+            new Appointment{Name = "Application", Description ="App1Desc", Id = 1},
+            new ToDo{Name="ToDo1", Description="ToDo1Desc", IsCompleted=false, Id =2 },
         };
     }
 }

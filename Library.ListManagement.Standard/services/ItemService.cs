@@ -75,6 +75,8 @@ namespace ListManagement.services
         private ItemService()
         {
             items = new ObservableCollection<Item>();
+            persistencePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\SaveData.json";
+
 
             try
             {
@@ -97,7 +99,6 @@ namespace ListManagement.services
 
         private void LoadFromDisk()
         {
-            persistencePath = $"{Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)}\\SaveData.json";
             if (File.Exists(persistencePath))
             {
                 try
@@ -120,7 +121,7 @@ namespace ListManagement.services
         {
             if (i.Id <= 0)
             {
-                i.Id = nextId;
+                i.Id = NextId;
             }
             items.Add(i);
             
@@ -133,12 +134,25 @@ namespace ListManagement.services
 
         public void Save()
         {
+            //save to disk
             var listJson = JsonConvert.SerializeObject(Items, serializerSettings);
             if (File.Exists(persistencePath))
             {
                 File.Delete(persistencePath);
             }
             File.WriteAllText(persistencePath, listJson);
+
+            //save to server
+            
+
+            foreach(var i in Items)
+            {
+                if (i is ToDo)
+                {
+                    JsonConvert.DeserializeObject<ToDo>( new WebRequestHandler().Post("http://localhost/ListManagementAPI/ToDo/AddOrUpdate", i).Result);
+                }
+            }
+            
 
         }
 
@@ -180,7 +194,7 @@ namespace ListManagement.services
             return listNav.GoBackward();
         }
 
-        private int nextId
+        public int NextId
         {
             get
             {
