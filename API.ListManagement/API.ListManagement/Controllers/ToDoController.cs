@@ -10,7 +10,6 @@ namespace API.ListManagement.Controllers
     public class ToDoController : ControllerBase
     {
         
-        private  List<int> numbers= new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
         private readonly ILogger<ToDoController> _logger;
 
         public ToDoController(ILogger<ToDoController> logger)
@@ -50,6 +49,24 @@ namespace API.ListManagement.Controllers
             }
             return todo;
         }
+        
+        [HttpPost("Remove")]
+        public void Remove([FromBody] ToDo todo)
+        {
+            
+            //REMOVE
+            var itemToUpdate = FakeDatabase.Items.FirstOrDefault(i => i.Id == todo.Id);
+            if (itemToUpdate != null)
+            {
+                var index = FakeDatabase.Items.IndexOf(itemToUpdate);
+                FakeDatabase.Items.Remove(itemToUpdate);
+            }
+            
+            
+        
+        }
+        
+
 
 
 

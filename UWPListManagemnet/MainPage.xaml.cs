@@ -4,6 +4,7 @@ using ListManagement.services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UWPListManagement.Dialogs;
 using UWPListManagement.ViewModels;
 using Windows.UI.Xaml;
@@ -23,6 +24,10 @@ namespace UWPListManagement
         public MainPage()
         {
             this.InitializeComponent();
+
+            
+
+      
             DataContext = new MainViewModel();
             
         }

@@ -5,6 +5,11 @@
       "ProjectGuid": "52cff47a-fcbd-4b4c-b4df-33a355fe4b82",
       "DisplayName": "API.ListManagement",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1

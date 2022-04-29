@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Library.ListManagement.Standard.utilities;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ListManagement.models
 {
+    //[JsonConverter(typeof(ItemJsonConverter))]
     public class Appointment : Item
     {
         private DateTimeOffset boundDate;
@@ -42,11 +45,12 @@ namespace ListManagement.models
 
         public List<string> Attendees { get; set; }
 
+        /*
         public Appointment()
         {
             Attendees = new List<string>();
         }
-
+        */
         public override string ToString()
         {
             return $"{Name} | {Description} | Start: {(Start.ToString("dd/MM/yyyy"))} | End: {(End.ToString("dd/MM/yyyy"))} | Priority: {Priority}";

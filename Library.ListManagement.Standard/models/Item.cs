@@ -13,6 +13,7 @@ namespace ListManagement.models
     public class Item : IItem
     {
         private string _name;
+        private string _description;
         public string Name
         {
             get
@@ -25,7 +26,16 @@ namespace ListManagement.models
             }
 
         }
-        public string Description { get; set; }
+        public string Description {
+            get
+            {
+                return _description;
+            }
+            set
+            {
+                _description = value;
+            } 
+        }
         public int Priority { get; set; }
         public int Id { get; set; }
         public override string ToString()

@@ -34,6 +34,11 @@ namespace ListManagement.services
             {
                 return items;
             }
+
+            set
+            {
+
+            }
         }
 
 
@@ -91,9 +96,26 @@ namespace ListManagement.services
 
         private void LoadFromServer()
         {
+            items.Clear();
             var payload = JsonConvert.DeserializeObject<List<Item>>(new WebRequestHandler().Get("http://localhost/ListManagementAPI/ToDo").Result);
             payload.ForEach(items.Add);
-
+            /*
+            foreach(var item in payload)
+            {
+                bool exists = false;
+                foreach(var j in items)
+                {
+                    if (item.Id == j.Id)
+                    {
+                        exists = true;
+                    }
+                }
+                if (!exists)
+                {
+                    items.Add(item);
+                }
+            }
+            */
             listNav = new ListNavigator<Item>(FilteredItems, 2);
         }
 
@@ -123,6 +145,7 @@ namespace ListManagement.services
             {
                 i.Id = NextId;
             }
+            
             items.Add(i);
             
         }
@@ -130,6 +153,16 @@ namespace ListManagement.services
         public void Remove(Item i)
         {
             items.Remove(i);
+            /*
+            if (i is ToDo)
+            {
+                JsonConvert.DeserializeObject<ToDo>(new WebRequestHandler().Post("http://localhost/ListManagementAPI/ToDo/Remove", i).Result);
+            }
+            if (i is Appointment)
+            {
+                JsonConvert.DeserializeObject<Appointment>(new WebRequestHandler().Post("http://localhost/ListManagementAPI/Appointment/Remove", i).Result);
+            }
+            */
         }
 
         public void Save()
@@ -142,15 +175,51 @@ namespace ListManagement.services
             }
             File.WriteAllText(persistencePath, listJson);
 
-            //save to server
-            
 
-            foreach(var i in Items)
+            foreach (var i in items)
             {
                 if (i is ToDo)
                 {
-                    JsonConvert.DeserializeObject<ToDo>( new WebRequestHandler().Post("http://localhost/ListManagementAPI/ToDo/AddOrUpdate", i).Result);
+                    JsonConvert.DeserializeObject<ToDo>(new WebRequestHandler().Post("http://localhost/ListManagementAPI/ToDo/AddOrUpdate", i).Result);
                 }
+                if (i is Appointment)
+                {
+
+                    JsonConvert.DeserializeObject<Appointment>(new WebRequestHandler().Post("http://localhost/ListManagementAPI/Appointment/AddOrUpdate", i).Result);
+                }
+            }
+
+
+
+                //save to server
+
+            var payload = JsonConvert.DeserializeObject<List<Item>>(new WebRequestHandler().Get("http://localhost/ListManagementAPI/ToDo").Result);
+            foreach (var i in payload)
+            {
+                bool exists = false;
+                foreach(var j in items)
+                {
+                    if(i.Id == j.Id)
+                    {
+                        exists = true;
+                    }
+                }
+                if (!exists)
+                {
+                    if (i is ToDo)
+                    {
+                        JsonConvert.DeserializeObject<ToDo>(new WebRequestHandler().Post("http://localhost/ListManagementAPI/ToDo/Remove", i).Result);
+                    }
+                    if (i is Appointment)
+                    {
+                        JsonConvert.DeserializeObject<Appointment>(new WebRequestHandler().Post("http://localhost/ListManagementAPI/Appointment/Remove", i).Result);
+                    }
+                }
+                else
+                {
+                    
+                }
+
             }
             
 
@@ -158,15 +227,14 @@ namespace ListManagement.services
 
         public void Load() 
         {
-            if (File.Exists(persistencePath))
+            try
             {
-                string listJson = File.ReadAllText(persistencePath);
-                ObservableCollection<Item> newitems = (JsonConvert.DeserializeObject(listJson, serializerSettings) as ObservableCollection<Item>);
-                items.Clear();
-                for (int i = 0; i < newitems.Count; i++)
-                {
-                    items.Add(newitems[i]);
-                }
+                
+                LoadFromServer();
+            }
+            catch (Exception)
+            {
+                LoadFromDisk();
             }
         }
 
@@ -235,7 +303,7 @@ namespace ListManagement.services
                     fullItems.Add(items[i]);
                 }
                 var Found = new ObservableCollection<Item>();
-                var results = from item in items
+                var results = from item in Items
                               where item.Name.ToUpper().Contains(stringToSearch) || item.Description.ToUpper().Contains(stringToSearch)
                               || ((item as Appointment)?.Attendees?.Any(a => a.ToUpper().Contains(stringToSearch)) ?? false)
                               select item;
